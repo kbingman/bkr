@@ -1,0 +1,282 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+Title : Bitch Kitty Racing 2.0
+Author : Keith Bingman/Bitch Kitty Racing
+URL : bitchkittyracing.com
+
+Description : 
+
+Created : 14.07.2006
+Modified : 14.07.2006
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+/* ----- CSS ----- */
+
+* {}	
+html {}
+
+body {margin: 0; padding: 0; font-family: "Helvetica Neue Regular", Arial, Helvetica, sans-serif; 
+  font-size: 87.5%; line-height: 1.5em; color:#9ba08d; background: #1a1b18 url('images/background.gif') repeat-y;}
+  /* text-shadow: 0 0 0 #222320; */
+  
+  
+  
+/* ----- IDS ----- */ 
+
+#archives {margin: 0; margin-top: 20px; margin-bottom: 30px;}
+#archives li {display: block; margin-bottom: 5px; padding: 0 10px 5px 10px;}
+#archives li a {color: #5a5d51;}
+
+#archives li a:hover {color: #dc7700; text-decoration: none; /* background: #1a1b18; */}
+#archives li p {margin: 0; color:#9ba08d; }
+#archives li .date {color: #60646c;}
+
+#articles {margin: 0;}
+#articles ul {margin: 0; padding: 0;}
+#articles li {margin: 0 0 0 0; padding: 0 0 1.5em 0;}
+#articles li p {margin: 0 0 1.5em 0;}
+#articles li p.meta {margin: 0 0 2.1em 0;}
+#articles li h3 {margin: 0 0 0 0;}
+
+#bkr-tv {margin: 0 -40px 1.5em -40px; padding: 0 40px; height: 504px; background: #1a1b18 url('images/bottom.png') left bottom no-repeat;}
+#bkr-tv h2 {margin: 0 -40px 0 -40px; padding: 0 40px; background: url('images/header.png') no-repeat;}
+
+ul#bkrecords {margin-top:10px;}
+ul#bkrecords li {}
+#bkrecords li li {}
+
+#bkrecords dl, #imixes {margin: 0;}
+#bkrecords dt, #imixes dt {color: #60646c; font-size: 0.714285em; padding: 0.4em 0 0 0; line-height: 1.3em;}
+#bkrecords dt a, #imixes dt {display: block; padding: 0.4em 14px 0 14px; color: #60646c; background: #272925;}
+#imixes dt {margin: 0.4em 0 0 0;}
+#bkrecords dd a, #imixes dd a {display: block; padding: 0 14px; color:#9ba08d; background: #272925;} 
+#bkrecords dt a:hover, #bkrecords dd a:hover, #imixes dt a:hover, #imixes dd a:hover{color: #dc7700; text-decoration: none;}
+
+#caption {text-align: left;}
+
+#copyright {clear: both; margin: 0; padding: 10px 10px 60px 0; text-align: right;
+  background: #dc7700 url('images/shadow.gif') 10px 0 no-repeat;}
+#copyright p {color: #222320; margin: 0; font-size: 0.785715em;}
+#copyright a {color: #222320; text-decoration: none;}
+#copyright span {margin-left: 10px;}
+#copyright a:hover {text-decoration: underline;}
+
+
+#comments {margin: 3em 0; clear: left;}
+#comments ul {margin: 0; padding: 0; list-style: none;}
+#comments li {margin: 0 0 1.5em 0; padding: 0; }
+#comments li p {margin: 0 0 1.5em 0; padding: 1.5em; background: #1a1b18 url('images/header.png') top left no-repeat;}
+#comments li p.meta {text-align: right; margin-top: -2.1em; padding: 0 3em 1.0em 3em; line-height: 1.1em; background: #1a1b18 url('images/bottom.png') bottom left no-repeat;}
+
+#container {width: 960px; margin: 0 auto;	border-right: 10px solid #121311; /*background: #222320;*/}
+#content {margin: 0; padding: 40px;background: #222320; /*url('images/gridbg.png')*/}
+
+#cover { float: left; margin-top: 5px; margin-right: 20px; margin-bottom: 5px; width: 160px;}
+#cover img {border:3px solid #1a1b18;}
+
+
+
+#footer { clear: both; margin: 0; padding-bottom: 10px;
+  background: #30322d url('images/corner.gif') bottom left no-repeat;}
+#footer ul { margin: 20px 0; padding: 0;}
+#footer li { display: block; line-height: 1.4; margin: 0; padding: 1px 0;}
+#footer li a {margin: 0; padding: 0; color:#9ba08d;  display: block; text-decoration: none;}
+#footer li a:hover { color: #dc7700; text-decoration: none;}
+#footer li span { display: block; color:#9ba08d;  line-height: 1.4; margin-top: 0;}
+
+#footer #bitch-kitty-records { padding: 0; float: left;  width: 360px;}
+#footer #bitch-kitty-records li { margin-left: 40px; margin-bottom: 10px;}
+
+#footer #sections {float: left; width: 220px;}
+#footer #sections ul {text-align: right;}
+#footer #sections li a {padding-right: 20px;}
+
+#footer #sponsors {float: right; width: 300px;}
+#footer #sponsors li { margin-left: 40px; margin-right: 20px; margin-bottom: 10px;}
+
+#galleries h2 {margin: 0 -40px; padding: 0 40px; background: #1a1b18 url('images/header.png') top left no-repeat;}
+#galleries ul {margin: 0 0 1.5em 0;}
+#galleries li {margin: 0 -40px 0.75em -40px; padding: 11px 40px; background: #1a1b18 url('images/gallery.png') no-repeat;}
+#galleries .thumbnail {float: left; margin: 0 11px 0 0;  padding: 7px; width: 100px; height: 101px; background: #222320; text-align: center;}
+#galleries .thumbnail img {margin: 0; float: none;}
+#galleries a img, #photos a img {border: none;}
+#galleries h3 {margin: 0.5em 0 0 0;}
+#galleries p.meta {margin: 0;}
+
+#header {position: relative; height: 130px; background: #0d0e0d url('images/header.jpg') no-repeat;}
+#imix {}
+
+#logo {text-indent: -10000px; margin: 0;}
+#logo a {position: absolute; top: 0;right: 0; height: 130px; width: 320px; margin: 0;
+  background-image: url('images/logo.png'); background-position: right; background-repeat: none;}
+
+#main {float: left; margin: 2px 0 40px 0; padding-left: 40px; width: 480px; background: transparent;}
+
+#photo {margin: 0 -40px 1.5em -40px; padding: 0 20px 3em 40px; background: #1a1b18 url('images/bottom.png') bottom left no-repeat;}
+#photo h2 {margin: 0 0 0 -40px; padding: 0 0 0 40px; background: #1a1b18 url('images/header.png') no-repeat; }
+
+ul#photos {list-style: none; margin: 0; padding: 0 0;}
+#photos li {float: left; margin: 0 11px 11px 0;  padding: 7px; width: 100px; height: 101px; background: #222320; text-align: center;}
+
+#rss img {margin: 0 5px -3px 0;}
+
+#sidebar {margin-top: 2px; float: right; width: 280px;}
+#sidebar li a {}
+#sidebar ul {font-size: 1em; margin: 0 0 1.5em 0;}
+#sidebar .meta {display:block; margin: 0; padding: 0 0 1.0em 0; line-height: 1.1em;}
+
+#sitemap ul {padding-left: 10px; list-style: square;}
+
+#wrapper {margin: 0; margin-bottom: -18px; background: url('images/wrapper.gif') repeat-x fixed; }
+
+
+
+
+/*----- CLASSES -----*/
+
+.article {margin: 0 0 3em 0;}
+.article img {float: left; margin: 0 14px 7px 0; padding: 4px;  border: 1px solid #3f413b;}
+img.invisible {margin: 0; padding:0; border: none;}
+
+.cover {width: 180px;}
+
+.meta {color: #60646c; font-size: 0.714285em; line-height: 2.1em;}
+.date {color: #60646c;}
+
+.bkreviews {margin-bottom: 42px;}
+.bkreviews-author {margin-top: -6px;}
+
+.clearboth {clear: both;}
+.clearleft {clear: left;}
+.clearright {clear: right;}
+
+.floatleft {float: left; margin:0 14px 7px 0;}
+
+.google {margin:25px;}
+.more {margin-top: -10px;}
+
+.sidebox {margin: 0 0 3em 0; padding: 1.5em 25px; color:#9ba08d; background: #30322d url('images/corner.gif') bottom left no-repeat; }
+ /* url('images/corner.gif') bottom left no-repeat; */
+.sidebox ul {margin: 0}
+.sidebox li {margin: 0;}
+.sidebox li a, .sidebox dd a {color:#9ba08d; text-decoration: none; display: block; padding: 0; }
+.sidebox li a:hover, .sidebox dd a:hover {color: #dc7700; text-decoration: none;}
+
+.sidebox dl {margin: 0 0 1.5em 0;}
+.sidebox dd {margin: 0;}
+.sidebox dt {color: #60646c; font-size: 0.714285em; padding: 0.8em 0 0 0; line-height: 1.3em;}
+
+.sidebox p {}
+.sidebox p a {color: #dc7700; text-decoration: none;}
+.subbox {margin-bottom: 40px;}
+
+
+
+/*----- PARAGRAPHS-----*/
+
+p {margin: 0 0 1.5em 0;}
+p.meta {margin: 0 0 2.1em 0;}
+
+blockquote {margin: 1.5em 1em; padding-left: 0.5em; border-left: 2px solid #959385; color: #bbb9a8;}
+blockquote p {margin:0; color: #bbb9a8;}
+ 
+cite {display: block; color: #60646c; font-size: 0.714285em; line-height: 2.1em; margin: 0 0 0 1em;}
+
+
+
+
+/*----- BREAKS-----*/
+
+hr {visibility: hidden; margin-bottom: -2px;}
+
+
+/*----- LINKS -----*/
+a {color: #dc7700; text-decoration: none; border:none;}
+a:visited {border:none;}
+a:hover {color: #dc7700; text-decoration: underline;}
+a:active {}
+
+
+
+/*----- HEADERS-----*/
+
+h1 {}
+h2 {font-size: 2em; line-height: 1.5em; margin: 0 0 0 0; padding: 0 0 0 0; color: #494b42; font-weight: normal;}
+h3 {font-size: 1.5em; line-height: 1em; margin: 0 0 1em 0; font-weight: normal;}
+h4 {font-size: 1.28571em; line-height: 1.1667em; margin: 0 0 1.1667em 0; font-weight: normal;}
+h5 {font-size: 0.714285em; line-height: 2.1em; margin: -2.1em 0 2.1em 0; font-weight: normal;}
+h6 {}
+
+h5 a {color: #9ba08d;}
+h2 a, h3 a {color: #494b42; text-decoration: none;}
+h2 a:hover, h3 a:hover {color: #dc7700; text-decoration: none;}
+
+
+#sidebar h3 {line-height: 2em; margin: 0 0 0 0; padding: 0 15px 0 25px; color: #30322d; 
+  background: #1a1b18 url('images/header.png') no-repeat;}
+#sidebar h3 a {color: #30322d;}
+#sidebar h4 {margin: 0 0 1.1667em 0;}
+#sidebar h4 a {color: #dc7700; text-decoration: none;}
+
+
+
+/*----- FORMS -----*/
+
+fieldset {border:none; margin: 0; padding: 1.5em; background:  url('images/bottom.png') bottom left no-repeat;}
+form {margin: 0; padding: 0; background: #1a1b18 url('images/header.png') top left no-repeat;}
+form dl, dt, dd {margin: 0; padding: 0;}
+dd input {margin: 0; padding: 0; width: 20em;}
+textarea {margin: 0; padding: 0; width: 30em; height: 11.5em;}
+
+form dt {font-size: 0.78571em;}
+form dd {margin: 0;}
+
+input#submit {margin: 0.75em 0;}
+
+
+
+
+/*----- IMAGE REPLACEMENT FOR FOOTER -----*/
+
+#footer h3 {margin: 0; padding: 0;}
+
+#sections h3 {text-indent: -10000px; height: 40px; padding: 0;margin: 0; 
+  background: #1a1b18 url('images/sections.gif') no-repeat;}
+#sponsors h3 {text-indent: -10000px; height: 40px; padding: 0; margin: 0;
+  background: #1a1b18 url('images/sponsors.gif') 20px 0 no-repeat;}
+#bitch-kitty-records h3 {text-indent: -10000px; height: 40px; margin: 0; padding: 0;
+  background: #1a1b18 url('images/bitch_kitty_records.gif') 20px 0 no-repeat;}
+#about h3 {text-indent: -10000px; height: 40px; margin: 0; padding: 0;
+  background: #1a1b18 url('images/more_about_us.gif') 0 0 no-repeat;}
+
+
+/*----- LISTS -----*/
+ul {margin: 0; padding: 0; list-style: none;}
+li {margin: 0; padding: 0;}
+
+.article ol {margin: 0 0 1.5em 0; padding: 0 0 0 3em;}
+.article ul {margin: 0 0 1.5em 0; padding: 0 0 0 3em; list-style: disc;}
+
+
+
+/*----- NAVIGATION-----*/
+
+ul#navigation {list-style: none; padding-top:2px;}
+#navigation li a {display: block; text-indent: -1000em; width: 320px; height: 30px; margin: 0 0 2px 2px; color: #888988; 
+  text-decoration: none; background-repeat: none;}
+
+#navigation li#articles a {background-image: url('images/articles.png');}
+#navigation li#the-blog a {background-image: url('images/the_blog.png');}
+#navigation li#galleries a {background-image: url('images/bkr_galleries.png');}
+#navigation li#bitch-kitty-tv a {background-image: url('images/bitch_kitty_tv.png');}
+
+#navigation li.active a, #navigation li a:hover {background-position: 0 -30px; }
+
+
+
+
+
+
+
+

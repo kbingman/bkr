@@ -1,0 +1,41 @@
+#content table.index .copy-move {
+	padding-left:0pt;
+	width:100px;
+}
+
+#reorder-page {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 5px;
+  padding-top: 12px;
+}
+
+#reorder-page .icon {
+  margin-top: -7px;
+}
+
+ul.pages,
+ul.pages li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  cursor: move;
+}
+ul.pages {
+  border-bottom: 1px solid #eaeaea;
+}
+ul.pages li {
+  font-size: 105%;
+  font-weight: normal;
+  padding: 10px;
+  padding-left: 52px;
+  border-bottom: 1px solid #eaeaea;
+}
+ul.page .icon,
+ul.pages .icon {
+  position: absolute;
+  margin-top: -7px;
+  left: 22px;
+}

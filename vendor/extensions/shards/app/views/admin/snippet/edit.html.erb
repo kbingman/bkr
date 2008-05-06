@@ -1,0 +1,9 @@
+<% render_region :main do |main| %>
+  <% main.edit_header do %>
+    <% if @snippet.new_record? -%>
+      <h1>New Snippet</h1>
+    <% else -%>
+      <h1>Edit Snippet</h1>
+    <% end %>
+  <% end %>
+<% end %>

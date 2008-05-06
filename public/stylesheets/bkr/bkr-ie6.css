@@ -1,0 +1,11 @@
+#bitchKittyRecords li {
+  margin-bottom: 0;
+}
+#logo a {
+  background-image: none;
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale src='/stylesheets/bkr/images/logo.png');
+}
+
+.sidebox {
+}
+

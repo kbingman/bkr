@@ -1,0 +1,71 @@
+8
+
+dir
+38
+http://svn.bitchkittyracing.com/projects/bkr_styles
+http://svn.bitchkittyracing.com/projects
+
+
+
+2007-04-11T09:19:38.860352Z
+38
+keith
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0a018789-e2db-db11-84a2-00188b41de61
+
+slimbox.css
+file
+40
+
+
+
+2007-04-14T13:30:50.000000Z
+189597333a33a811bd727d203cc50923
+2007-04-20T08:40:30.455780Z
+40
+keith
+has-props
+
+images
+dir
+
+bkr.css
+file
+42
+
+
+
+2007-04-20T21:34:19.000000Z
+3d2c0fabd32d535e9b4effb33b4e6a8d
+2007-04-20T22:00:22.763721Z
+42
+keith
+
+bkr-ie6.css
+file
+
+
+
+
+2007-04-11T09:19:52.000000Z
+b8a462e07bb2df9e8174d23d93b960ec
+2007-04-11T09:19:38.860352Z
+38
+keith
+
+slimbox
+dir
+
