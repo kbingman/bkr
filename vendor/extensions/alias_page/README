@@ -1,5 +1,0 @@
-= Alias Page
-
-This extension adds a page type that redirects all requests to another page,
-which is given by a slug path (not a URL, ignores virtual pages that alter
-URLs).
