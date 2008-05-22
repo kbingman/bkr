@@ -34,4 +34,30 @@ describe Admin::WelcomeController do
     response.should be_redirect
     response.should redirect_to(login_url)
   end
+
+  describe "with a logged-in user" do
+    before do
+      login_as :admin
+    end
+
+    it "should not show /login again" do
+      get :login
+      response.should redirect_to(welcome_url)
+    end
+
+    describe "and a stored location" do
+      before do
+        session[:return_to] = '/stored/path'
+        post :login, :user => {:login => "admin", :password => "password"}
+      end
+
+      it "should redirect" do
+        response.should redirect_to('/stored/path')
+      end
+
+      it "should clear session[:return_to]" do
+        session[:return_to].should be_nil
+      end
+    end
+  end
 end

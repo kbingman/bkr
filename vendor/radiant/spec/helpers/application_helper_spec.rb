@@ -137,9 +137,9 @@ describe ApplicationHelper do
   end
   
   it "should determine whether a meta area item should be visible" do
-    meta_visible(:meta_more).should be_nil
-    meta_visible(:meta_less).should == ' style="display: none"'
-    meta_visible(:meta).should == ' style="display: none"'
+    meta_visible(:meta_more).should be_empty
+    meta_visible(:meta_less).should == {:style => "display:none"} 
+    meta_visible(:meta).should == {:style => "display:none"} 
   end
   
   it "should not have meta errors" do
@@ -162,5 +162,9 @@ describe ApplicationHelper do
   
   it "should provide the admin object" do
     admin.should == Radiant::AdminUI.instance
+  end
+  
+  it "should include the regions helper" do
+    ApplicationHelper.included_modules.should include(Admin::RegionsHelper)
   end
 end

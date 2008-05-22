@@ -38,4 +38,8 @@ describe Admin::PageHelper do
   it "should find the homepage" do
     homepage.should == pages(:home)
   end
+  
+  it "should render javascript for the page editing form" do
+    self.should respond_to(:page_edit_javascripts)
+  end
 end

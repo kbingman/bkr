@@ -6,8 +6,10 @@ describe Radiant::ExtensionLoader do
     $LOAD_PATH.stub!(:unshift)
     @observer = mock("observer")
     @configuration = mock("configuration")
+    @admin = mock("admin_ui")
     @initializer = mock("initializer")
     @initializer.stub!(:configuration).and_return(@configuration)
+    @initializer.stub!(:admin).and_return(@admin)
     @instance = Radiant::ExtensionLoader.send(:new)
     @instance.initializer = @initializer
     
@@ -143,6 +145,7 @@ describe Radiant::ExtensionLoader do
   it "should activate extensions" do
     @initializer.should_receive(:initialize_default_admin_tabs)
     @initializer.should_receive(:initialize_framework_views)
+    @admin.should_receive(:load_default_regions)
     extensions = [BasicExtension, OverridingExtension]
     @instance.extensions = extensions
     @instance.activate_extensions

@@ -69,6 +69,11 @@ describe LoginRequiredController, :type => :controller do
     get :index
     response.should redirect_to(login_url)
   end
+  
+  it "should store location" do
+    get 'protected_action'
+    session[:return_to].should match(/login_required\/protected_action/)
+  end
 end
 
 class OnlyAllowAccessToWhenController < LoginRequiredController

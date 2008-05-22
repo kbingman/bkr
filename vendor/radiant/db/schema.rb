@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 18) do
+ActiveRecord::Schema.define(:version => 19) do
 
   create_table "config", :force => true do |t|
     t.string "key",   :limit => 40, :default => "", :null => false
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 18) do
     t.boolean  "developer",                    :default => false, :null => false
     t.text     "notes"
     t.integer  "lock_version",                 :default => 0
+    t.string   "salt"
   end
 
   add_index "users", ["login"], :name => "login", :unique => true

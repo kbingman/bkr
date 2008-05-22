@@ -80,6 +80,8 @@ table {
   padding-left: .9em;
   padding-right: .9em;
   text-decoration: none;
+  outline: none;
+  -moz-outline: none;
 }
 #navigation a:hover, #navigation a:visited:hover {
   text-decoration: underline;
@@ -360,23 +362,23 @@ h1 {
   margin-bottom: .3em;
   width: 100%;
 }
-#content table.fieldset td {
+#content table.fieldset td, #content table.fieldset th {
   background-color: white;
   border-top: 1px solid #DFD3C3;
   padding: 6px;
 }
-#content table.fieldset td.label {
+#content table.fieldset th.label {
   padding-top: 10px;
   padding-right: 8px;
   vertical-align: top;
-  whitespace: nowrap;
+  white-space: nowrap;
   width: 1%;
   text-align: left;
 }
 #content .fieldset label {
   font-weight: normal;
 }
-#content table.fieldset td.label .optional {
+#content table.fieldset th.label .optional {
   color: #929488;
 }
 #content table.fieldset td.field {
@@ -445,6 +447,8 @@ h1 {
   padding-bottom: 4px;
   text-decoration: none;
   text-transform: titlecase;
+  outline: none;
+  -moz-outline: none;
 }
 #content #tabs .tab.here {
   background-color: white;

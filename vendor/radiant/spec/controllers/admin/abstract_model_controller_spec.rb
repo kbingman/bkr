@@ -9,6 +9,8 @@ class TestModelController < Admin::AbstractModelController
   def default_template_name(default_action_name = action_name)
     "#{Admin::LayoutController.controller_path}/#{default_action_name}"
   end
+  
+  before_filter {|c| c.send(:instance_variable_set, "@controller_name", 'layout')}
 end
 
 #

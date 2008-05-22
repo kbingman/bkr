@@ -1,0 +1,40 @@
+<form method="post" action="">
+  <%= render_region :form_top %>
+  <%= hidden_field "snippet", "lock_version" %>
+  <div class="form-area">
+    <% render_region :form do |form| %>
+      <% form.edit_title do %>
+        <p class="title">
+          <label for="snippet_name">Name</label>
+          <%= text_field "snippet", "name", :class => 'textbox', :maxlength => 100 %>
+        </p>
+      <% end %>
+      <% form.edit_content do %>
+        <p class="content">
+          <label for="snippet_content">Body</label>
+          <%= text_area "snippet", "content", :class => "textarea", :style => "width: 100%" %></p>
+      <% end %>
+      <% form.edit_filter do %>
+        <p>
+          <label for="snippet_filter">Filter</label>
+          <%= select_tag "snippet[filter_id]", options_for_select([['none', '']] +
+            TextFilter.descendants.map { |f| f.filter_name }.sort, @snippet.filter_id), :id => 'snippet_filter' %>
+        </p>
+      <% end %>
+      <% form.edit_timestamp do %>
+        <%= updated_stamp @snippet %>
+      <% end %>
+    <% end %>
+  </div>
+  <% render_region :form_bottom do |form_bottom| %>
+    <% form_bottom.edit_buttons do %>
+      <p class="buttons">
+        <%= save_model_button(@snippet) %>
+        <%= save_model_and_continue_editing_button(@snippet) %> or <%= link_to "Cancel", snippet_index_url %>
+      </p>
+    <% end %>
+  <% end %>
+</form>
+ 
+<%= focus 'snippet_name' %>
+

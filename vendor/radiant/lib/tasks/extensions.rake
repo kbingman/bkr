@@ -69,6 +69,39 @@ namespace :spec do
   end
 end
 
+namespace :radiant do
+  namespace :extensions do
+    desc "Runs update asset task for all extensions"
+    task :update_all => :environment do
+      extension_names = Radiant::ExtensionLoader.instance.extensions.map { |f| f.to_s.underscore.sub(/_extension$/, '') }
+      extension_update_tasks = extension_names.map { |n| "radiant:extensions:#{n}:update" }.select { |t| Rake::Task.task_defined?(t) }
+      extension_update_tasks.each {|t| Rake::Task[t].invoke }
+    end
+  end
+end
+
+namespace :radiant do
+  namespace :extensions do
+    desc "Runs update asset task for all extensions"
+    task :update_all => :environment do
+      extension_names = Radiant::ExtensionLoader.instance.extensions.map { |f| f.to_s.underscore.sub(/_extension$/, '') }
+      extension_update_tasks = extension_names.map { |n| "radiant:extensions:#{n}:update" }.select { |t| Rake::Task.task_defined?(t) }
+      extension_update_tasks.each {|t| Rake::Task[t].invoke }
+    end
+  end
+end
+
+namespace :radiant do
+  namespace :extensions do
+    desc "Runs update asset task for all extensions"
+    task :update_all => :environment do
+      extension_names = Radiant::ExtensionLoader.instance.extensions.map { |f| f.to_s.underscore.sub(/_extension$/, '') }
+      extension_update_tasks = extension_names.map { |n| "radiant:extensions:#{n}:update" }.select { |t| Rake::Task.task_defined?(t) }
+      extension_update_tasks.each {|t| Rake::Task[t].invoke }
+    end
+  end
+end
+
 # Load any custom rakefiles from extensions
 [RAILS_ROOT, RADIANT_ROOT].uniq.each do |root|
   Dir[root + '/vendor/extensions/*/lib/tasks/*.rake'].sort.each { |ext| load ext }

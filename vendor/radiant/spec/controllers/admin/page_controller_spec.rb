@@ -95,7 +95,7 @@ describe Admin::PageController do
     page.parts.size.should == 0
 
     Page.find_by_title("New Page").should_not be_nil
-    @cache.expired_path.should == '/new-page/'
+    @cache.should be_cleared
   end
 
   it "should show errors when you try and create a new page with invalid data" do
@@ -165,7 +165,7 @@ describe Admin::PageController do
     response.should be_redirect
     page = pages(:home)
     page.title.should == "Updated Home Page"
-    @cache.expired_path.should == '/'
+    @cache.should be_cleared
   end
 
   it "should re-render the form when the page fails to save" do
@@ -173,15 +173,6 @@ describe Admin::PageController do
     post :edit, :id => page_id(:home), :page => { :slug => '' }
     response.should render_template("edit")
     assigns[:page].should == pages(:home)
-  end
-
-  it "should expire the cache correctly when you change a page's slug" do
-    @cache = @controller.cache = FakeResponseCache.new
-    post :edit, :id => page_id(:first), :page => { :slug => 'monkey' }
-    response.should be_redirect
-    page = pages(:first)
-    page.slug.should == 'monkey'
-    @cache.expired_path.should == '/first/'
   end
 
   it "should allow you to save changes to a page and its parts" do
@@ -222,7 +213,7 @@ describe Admin::PageController do
     # but must be rendered to page
     response.should have_tag('textarea', 'changed-1')
   end
-
+  
   it "should prompt you when deleting a page" do
     page = pages(:first)
     get :remove, :id => page.id
@@ -246,22 +237,6 @@ describe Admin::PageController do
     response.should redirect_to(page_index_url)
     flash[:notice].should match(/removed/)
     Page.find_by_id(page.id).should be_nil
-  end
-
-  it "should prompt you when clearing the page cache" do
-    @cache = @controller.cache = FakeResponseCache.new
-    get :clear_cache
-    response.should be_success
-    @response.body.should match(/Do.*?not.*?access/i)
-    @cache.should_not be_cleared
-  end
-
-  it "should allow you to clear the page cache" do
-    @cache = @controller.cache = FakeResponseCache.new
-    post :clear_cache
-    response.should redirect_to(page_index_url)
-    flash[:notice].should match(/cache.*clear/i)
-    @cache.should be_cleared
   end
 
   it "should use the _part template when adding a part with AJAX" do

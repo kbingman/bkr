@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 16) do
+ActiveRecord::Schema.define(:version => 18) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(:version => 16) do
   end
 
   create_table "layouts", :force => true do |t|
-    t.string   "name",         :limit => 100
+    t.string   "name",          :limit => 100
     t.text     "content"
-    t.string   "content_type", :limit => 40
+    t.string   "content_type",  :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by"
-    t.integer  "updated_by"
-    t.integer  "lock_version",                :default => 0
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
+    t.integer  "lock_version",                 :default => 0
   end
 
   create_table "metataggings", :force => true do |t|
@@ -89,13 +89,15 @@ ActiveRecord::Schema.define(:version => 16) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
     t.boolean  "virtual",                        :default => false, :null => false
     t.integer  "position",                       :default => 0,     :null => false
     t.integer  "lock_version",                   :default => 0
     t.boolean  "enable_comments"
     t.integer  "comments_count",                 :default => 0
+    t.string   "description"
+    t.string   "keywords"
   end
 
   create_table "sessions", :force => true do |t|
@@ -116,32 +118,32 @@ ActiveRecord::Schema.define(:version => 16) do
   end
 
   create_table "snippets", :force => true do |t|
-    t.string   "name",         :limit => 100, :default => "", :null => false
-    t.string   "filter_id",    :limit => 25
+    t.string   "name",          :limit => 100, :default => "", :null => false
+    t.string   "filter_id",     :limit => 25
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
     t.integer  "position"
-    t.integer  "lock_version",                :default => 0
+    t.integer  "lock_version",                 :default => 0
   end
 
   add_index "snippets", ["name"], :name => "name", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "name",         :limit => 100
+    t.string   "name",          :limit => 100
     t.string   "email"
-    t.string   "login",        :limit => 40,  :default => "",    :null => false
-    t.string   "password",     :limit => 40
-    t.boolean  "admin",                       :default => false, :null => false
-    t.boolean  "developer",                   :default => false, :null => false
+    t.string   "login",         :limit => 40,  :default => "",    :null => false
+    t.string   "password",      :limit => 40
+    t.boolean  "admin",                        :default => false, :null => false
+    t.boolean  "developer",                    :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by"
-    t.integer  "updated_by"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
     t.text     "notes"
-    t.integer  "lock_version",                :default => 0
+    t.integer  "lock_version",                 :default => 0
   end
 
   add_index "users", ["login"], :name => "login", :unique => true

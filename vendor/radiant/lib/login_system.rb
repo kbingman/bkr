@@ -38,6 +38,7 @@ module LoginSystem
           flash[:error] = permissions[:denied_message] || 'Access denied.'
           redirect_to permissions[:denied_url] || { :action => :index }
         else
+          session[:return_to] = request.request_uri
           redirect_to login_url
         end
         false

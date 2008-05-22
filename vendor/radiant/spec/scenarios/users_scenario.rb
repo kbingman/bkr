@@ -10,7 +10,7 @@ class UsersScenario < Scenario::Base
   
   helpers do
     def create_user(name, attributes={})
-      create_record :user, name.symbolize, user_attributes(attributes.update(:name => name))
+      create_model :user, name.symbolize, user_attributes(attributes.update(:name => name))
     end
     def user_attributes(attributes={})
       name = attributes[:name] || "John Doe"
@@ -21,7 +21,7 @@ class UsersScenario < Scenario::Base
         :login => symbol.to_s,
         :password => "password"
       }.merge(attributes)
-      attributes[:password] = User.sha1(attributes[:password])
+      attributes[:password_confirmation] = attributes[:password]
       attributes
     end
     def user_params(attributes={})

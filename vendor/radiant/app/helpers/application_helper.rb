@@ -1,5 +1,6 @@
 module ApplicationHelper
   include LocalTime
+  include Admin::RegionsHelper
   
   def config
     Radiant::Config
@@ -121,7 +122,7 @@ module ApplicationHelper
     when :meta, :meta_less
       meta_errors?
     end
-    ' style="display: none"' unless v
+    v ? {} : {:style => "display:none"}
   end
   
   def meta_errors?

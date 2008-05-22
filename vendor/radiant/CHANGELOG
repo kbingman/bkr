@@ -1,5 +1,23 @@
 == Change Log
 
+=== Edge
+* Don't require an authenticity token check on the login action. [Sean Cribbs]
+* Make sure region sets are reloaded when activating extensions in development
+mode. [Sean Cribbs]
+* Fix Haml rendering errors. [Thomas Watson Steen]
+
+=== 0.6.7 Mordant
+* Integrate shards extension into core. [Sean Cribbs]
+* Convert all views to Haml. [Sean Cribbs, John Long]
+* Avoid authenticity check when listing page children. [Sean Cribbs]
+* Add radiant:extensions:update_all task. [Josh French]
+* Tweak LoginSystem to allow attempted URL redirection after login and 
+auto-redirect from login URL if logged in. [Josh French]
+* Add per-user salting to password encryption. [Sean Cribbs]
+* Address CSRF vulnerabilities in forms. [Sean Cribbs]
+* Remove clear cache action, always clear cache after saving a page. [Sean 
+Cribbs]
+
 === 0.6.6 Chiseled
 * Make sure extension view paths override Radiant view paths. [Josh French]
 * Fix problem in framework.rake when public/javascripts/admin doesn't exist.

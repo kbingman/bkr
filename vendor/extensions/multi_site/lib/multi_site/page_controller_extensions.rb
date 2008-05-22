@@ -4,9 +4,9 @@ module MultiSite::PageControllerExtensions
       alias_method_chain :index, :root
       alias_method_chain :clear_model_cache, :site
       alias_method_chain :continue_url, :site
-      %w{remove clear_cache}.each do |m|
-        alias_method_chain m.to_sym, :back
-      end
+      # %w{remove clear_cache}.each do |m|
+      #  alias_method_chain m.to_sym, :back
+      # end
     }
   end
   

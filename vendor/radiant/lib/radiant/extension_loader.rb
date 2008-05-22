@@ -3,18 +3,18 @@ require 'method_observer'
 
 module Radiant
   class ExtensionLoader
-    
+
     class DependenciesObserver < MethodObserver
       attr_accessor :config
-      
+
       def initialize(rails_config)
         @config = rails_config
       end
-      
+
       def before_clear(*args)
         ExtensionLoader.deactivate_extensions
       end
-      
+
       def after_clear(*args)
         ExtensionLoader.load_extensions
         ExtensionLoader.activate_extensions
@@ -22,17 +22,17 @@ module Radiant
     end
 
     include Simpleton
-    
+
     attr_accessor :initializer, :extensions
-    
+
     def initialize
       self.extensions = []
     end
-    
+
     def configuration
       initializer.configuration
     end
-    
+
     def extension_load_paths
       load_extension_roots.map { |extension| load_paths_for(extension) }.flatten.select { |d| File.directory?(d) }
     end
@@ -40,14 +40,14 @@ module Radiant
     def plugin_paths
       load_extension_roots.map {|extension| "#{extension}/vendor/plugins" }.select {|d| File.directory?(d) }
     end
-    
+
     def add_extension_paths
       extension_load_paths.reverse_each do |path|
         configuration.load_paths.unshift path
         $LOAD_PATH.unshift path
       end
     end
-    
+
     def add_plugin_paths
       configuration.plugin_paths.concat plugin_paths
     end
@@ -55,15 +55,15 @@ module Radiant
     def controller_paths
       extensions.map { |extension| "#{extension.root}/app/controllers" }.select { |d| File.directory?(d) }
     end
-    
+
     def add_controller_paths
       configuration.controller_paths.concat(controller_paths)
     end
-    
+
     def view_paths
       extensions.map { |extension| "#{extension.root}/app/views" }.select { |d| File.directory?(d) }
     end
-    
+
     # Load the extensions
     def load_extensions
       @observer ||= DependenciesObserver.new(configuration).observe(::Dependencies)
@@ -80,15 +80,17 @@ module Radiant
         end
       end.compact
     end
-    
+
     def deactivate_extensions
       extensions.each &:deactivate
     end
-    
+
     def activate_extensions
       initializer.initialize_default_admin_tabs
-      # Reset the view paths after 
+      # Reset the view paths after
       initializer.initialize_framework_views
+      # Reset the admin UI regions
+      initializer.admin.load_default_regions
       extensions.each &:activate
     end
     alias :reactivate :activate_extensions
@@ -105,7 +107,7 @@ module Radiant
           []
         end
       end
-      
+
       def load_extension_roots
         @load_extension_roots ||= unless configuration.extensions.empty?
           select_extension_roots
@@ -113,10 +115,10 @@ module Radiant
           []
         end
       end
-      
+
       def select_extension_roots
         all_roots = all_extension_roots.dup
-        
+
         roots = configuration.extensions.map do |ext_name|
           if :all === ext_name
             :all
@@ -135,7 +137,7 @@ module Radiant
         end
         roots
       end
-      
+
       def all_extension_roots
         @all_extension_roots ||= configuration.extension_paths.map do |path|
           Dir["#{path}/*"].map {|f| File.expand_path(f) if File.directory?(f) }.compact.sort
